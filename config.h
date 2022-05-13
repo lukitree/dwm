@@ -3,7 +3,7 @@
 #include <X11/X.h>
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 6, .gappx = 10};
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int mainmon            = 0;        /* number of the main monitor */
