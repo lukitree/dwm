@@ -93,6 +93,7 @@ static const char *prntscrncmd[] = { "/bin/sh", "-c", "screenshot.sh", NULL };
 static const char *calccmd[] = { "gnome-calculator", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { myTerminal, "-t", scratchpadname, NULL };
+static const char *lockscreencmd[] = { "slock", NULL };
 
 /* media key commands */
 static const char *mediavoldn[] = { "/bin/sh", "-c", "volume.sh --decrease", NULL };
@@ -111,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_o,         spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,    XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_Escape,    togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,              XK_l,         spawn,          {.v = lockscreencmd } },
 	{ 0,                   KB_PRNTSCRN,  spawn,          {.v = prntscrncmd } },
 	
 	/* window management */
@@ -121,8 +123,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_k,         focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_comma,     incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_period,    incnmaster,     {.i = -1 } },
-	{ MODKEY,              XK_h,         setmfact,       {.f = -0.05} },
-	{ MODKEY,              XK_l,         setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,    XK_h,         setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,    XK_l,         setmfact,       {.f = +0.05} },
 	{ MODKEY,              XK_Return,    zoom,           {0} },
 	{ MODKEY,              XK_Tab,       viewmainmon,    {0} },
 	{ MODKEY|ControlMask,  XK_c,         killclient,     {0} },
