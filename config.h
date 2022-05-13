@@ -94,9 +94,9 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { myTerminal, "-t", scratchpadname, NULL };
 
 /* media key commands */
-static const char *mediavoldn[] = { "/bin/sh", "-c", "$HOME/.local/bin/volume.sh --decrease", NULL };
-static const char *mediavolmt[] = { "/bin/sh", "-c", "$HOME/.local/bin/volume.sh --mute", NULL };
-static const char *mediavolup[] = { "/bin/sh", "-c", "$HOME/.local/bin/volume.sh --increase", NULL };
+static const char *mediavoldn[] = { "/bin/sh", "-c", "volume.sh --decrease", NULL };
+static const char *mediavolmt[] = { "/bin/sh", "-c", "volume.sh --mute", NULL };
+static const char *mediavolup[] = { "/bin/sh", "-c", "volume.sh --increase", NULL };
 static const char *mediactlplay[] = { "playerctl", "play-pause", NULL };
 static const char *mediactlprev[] = { "playerctl", "previous", NULL };
 static const char *mediactlnext[] = { "playerctl", "next", NULL };
