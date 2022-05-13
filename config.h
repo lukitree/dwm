@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+/* TODO: Move shell scripts for volume, media control, and compositor toggling into C functions */
+
 #include <X11/X.h>
 
 /* appearance */
