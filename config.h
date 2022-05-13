@@ -102,6 +102,7 @@ static const char *mediavolup[] = { "/bin/sh", "-c", "volume.sh --increase", NUL
 static const char *mediactlplay[] = { "playerctl", "play-pause", NULL };
 static const char *mediactlprev[] = { "playerctl", "previous", NULL };
 static const char *mediactlnext[] = { "playerctl", "next", NULL };
+static const char *togglecompositor[] = { "/bin/sh", "-c", "toggle-compositor.sh" };
 
 static Key keys[] = {
 	/* modifier            key           function        argument */
@@ -117,6 +118,7 @@ static Key keys[] = {
 	
 	/* window management */
 	{ MODKEY,              XK_b,         togglebar,      {0} },
+	{ MODKEY,              XK_z,         spawn,          {.v = togglecompositor } },
 	{ Mod1Mask,            XK_Tab,       focusstack,     {.i = +1 } },
 	{ Mod1Mask|ShiftMask,  XK_Tab,       focusstack,     {.i = -1 } },
 	{ MODKEY,              XK_j,         focusstack,     {.i = +1 } },
