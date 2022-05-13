@@ -1,0 +1,5 @@
+.vscode/
+.cache/
+patches/
+build/
+autostart.h
