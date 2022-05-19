@@ -44,7 +44,7 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title          tags mask     iscentered   isfloating    monitor */
 	{ "Nvidia-settings",  NULL,       NULL,          0 ,           1,            1,           -1 },
-	{ "Thunderbird",      NULL,       NULL,          1 << 2,       0,            0,            0 },
+	{ "Thunderbird",      NULL,       NULL,          1 << 8,       0,            0,            0 },
 	{ "discord",          NULL,       "Discord",     0,            0,            0,            3 },
 	{ "Google-chrome",    NULL,       "Pandora",     0,            0,            0,            1 },
 	{ "Alacritty",        NULL,       "pianobar",    1 << 1,       1,            1,            1 },
