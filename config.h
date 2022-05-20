@@ -67,6 +67,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define AltMask Mod1Mask
 #define MODKEY Mod4Mask
 #define KB_PRNTSCRN 0x0000ff61
 #define TAGKEYS(KEY,TAG) \
@@ -120,15 +121,12 @@ static Key keys[] = {
 	
 	/* window management */
 	{ MODKEY,              XK_b,         togglebar,      {0} },
-	{ MODKEY,              XK_z,         spawn,          {.v = togglecompositor } },
-	{ Mod1Mask,            XK_Tab,       focusstack,     {.i = +1 } },
+	{ AltMask,             XK_Tab,       focusstack,     {.i = +1 } },
 	{ Mod1Mask|ShiftMask,  XK_Tab,       focusstack,     {.i = -1 } },
-	{ MODKEY,              XK_j,         focusstack,     {.i = +1 } },
-	{ MODKEY,              XK_k,         focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,    XK_comma,     incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_period,    incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_h,         setmfact,       {.f = -0.05} },
-	{ MODKEY|ShiftMask,    XK_l,         setmfact,       {.f = +0.05} },
+	{ MODKEY,              XK_j,         setmfact,       {.f = -0.05} },
+	{ MODKEY,              XK_k,         setmfact,       {.f = +0.05} },
 	{ MODKEY,              XK_Return,    zoom,           {0} },
 	{ MODKEY,              XK_Tab,       viewmainmon,    {0} },
 	{ MODKEY|ControlMask,  XK_c,         killclient,     {0} },
@@ -139,6 +137,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_space,     togglefloating, {0} },
 	{ MODKEY,              XK_0,         view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,    XK_0,         tag,            {.ui = ~0 } },
+	{ MODKEY,              XK_z,         spawn,          {.v = togglecompositor } },
+
 	/* Window Gap Control */
 	{ MODKEY,              XK_minus,     setgaps,        {.i = -5 } },
 	{ MODKEY,              XK_equal,     setgaps,        {.i = +5 } },

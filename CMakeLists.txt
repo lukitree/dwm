@@ -21,7 +21,7 @@ target_include_directories(L_X11 INTERFACE /usr/X11R6/include)
 target_link_directories(L_X11 INTERFACE /usr/X11R6/lib $HOME/meow)
 target_link_libraries(L_X11 INTERFACE X11 L_FreeType2)
 
-add_executable(dwm drw.c dwm.c util.c autostart.h)
+add_executable(dwm drw.c dwm.c util.c autostart.h config.h)
 set(VERSION 3.6)
 target_compile_options(dwm PUBLIC
                         -pedantic
