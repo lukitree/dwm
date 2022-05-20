@@ -21,7 +21,7 @@ target_include_directories(L_X11 INTERFACE /usr/X11R6/include)
 target_link_directories(L_X11 INTERFACE /usr/X11R6/lib $HOME/meow)
 target_link_libraries(L_X11 INTERFACE X11 L_FreeType2)
 
-add_executable(dwm drw.c dwm.c util.c autostart.h config.h)
+add_executable(dwm drw.c dwm.c util.c autostart.h config.h myapps.h)
 set(VERSION 3.6)
 target_compile_options(dwm PUBLIC
                         -pedantic
@@ -35,9 +35,10 @@ target_compile_definitions(dwm PUBLIC
 target_link_libraries(dwm L_X11 L_Xinerama)
 
 add_custom_command(
-    OUTPUT autostart.h config.h
+    OUTPUT autostart.h config.h myapps.h
     COMMAND cp -n ${PROJECT_SOURCE_DIR}/autostart.def.h ${PROJECT_SOURCE_DIR}/autostart.h
     COMMAND cp -n ${PROJECT_SOURCE_DIR}/config.def.h ${PROJECT_SOURCE_DIR}/config.h
+    COMMAND cp -n ${PROJECT_SOURCE_DIR}/myapps.def.h ${PROJECT_SOURCE_DIR}/myapps.h
 )
 
 install(TARGETS dwm DESTINATION ~/.local/bin)

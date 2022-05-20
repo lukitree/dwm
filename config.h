@@ -1,8 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
-/* TODO: Move shell scripts for volume, media control, and compositor toggling into C functions */
-
 #include <X11/X.h>
+#include "myapps.h"
 
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
@@ -31,9 +30,6 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan },
 };
 
-/* terminal to use */
-static const char myTerminal[] = "alacritty";
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -46,10 +42,10 @@ static const Rule rules[] = {
 	{ "Nvidia-settings",  NULL,       NULL,          0 ,           1,            1,           -1 },
 	{ "Thunderbird",      NULL,       NULL,          1 << 8,       0,            0,            0 },
 	{ "discord",          NULL,       "Discord",     0,            0,            0,            3 },
-	{ "Google-chrome",    NULL,       "Pandora",     0,            0,            0,            1 },
+	{ "Google-chrome",    NULL,       "Pandora",     1 << 0,       0,            0,            1 },
 	{ "Alacritty",        NULL,       "pianobar",    1 << 1,       1,            1,            1 },
 	{ "gnome-calculator", NULL,       "Calculator",  0,            1,            1,           -1 },
-	{ "Steam",            NULL,       "Steam",       0,            0,            0,            2 },
+	{ "Steam",            NULL,       "Steam",       0,            0,            0,           -1 },
 	{ "Xephyr",           NULL,       "Xephyr",      0,            1,            1,           -1 },
 };
 
@@ -84,21 +80,20 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { myTerminal, NULL };
-static const char rofimodi[] = "drun,run";
-static const char rofishow[] = "drun";
-static const char *roficmd[] = { "rofi", "-modi", rofimodi, "-show", rofishow, NULL };
+static const char *roficmd[] = { "rofi", "-modi", "drun,run", "-show", "drun", NULL };
 static const char *emojicmd[] = { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
-static const char *rangercmd[] = { myTerminal, "-e", "ranger" };
-static const char *thunarcmd[] = { "thunar", NULL };
-static const char *browsercmd[] = { "google-chrome-stable", NULL };
 static const char *prntscrncmd[] = { "/bin/sh", "-c", "screenshot.sh", NULL };
-static const char *calccmd[] = { "gnome-calculator", NULL };
+static const char *termcmd[]  = { myTerminal, NULL };
+static const char *browsercmd[] = { myBrowser, NULL };
+static const char *calculatorcmd[] = { myCalculator, NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { myTerminal, "-t", scratchpadname, NULL };
-static const char *lockscreencmd[] = { "slock", NULL };
+static const char *lockscreencmd[] = { myLockScreen, NULL };
+static const char *filebrowserclicmd[] = { myTerminal, "-e", myFileBrowserCLI };
+static const char *filebrowserguicmd[] = { myFileBrowserGUI, NULL };
 
 /* media key commands */
+/* TODO: Move shell scripts for volume, media control, screenshot, and compositor toggling into C functions */
 static const char *mediavoldn[] = { "/bin/sh", "-c", "volume.sh --decrease", NULL };
 static const char *mediavolmt[] = { "/bin/sh", "-c", "volume.sh --mute", NULL };
 static const char *mediavolup[] = { "/bin/sh", "-c", "volume.sh --increase", NULL };
@@ -111,8 +106,8 @@ static Key keys[] = {
 	/* modifier            key           function        argument */
 	{ MODKEY,              XK_p,         spawn,          {.v = roficmd } },
 	{ MODKEY,              XK_period,    spawn,          {.v = emojicmd } },
-	{ MODKEY,              XK_e,         spawn,          {.v = rangercmd } },
-	{ MODKEY|ShiftMask,    XK_e,         spawn,          {.v = thunarcmd } },
+	{ MODKEY,              XK_e,         spawn,          {.v = filebrowserclicmd } },
+	{ MODKEY|ShiftMask,    XK_e,         spawn,          {.v = filebrowserguicmd } },
 	{ MODKEY,              XK_o,         spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,    XK_Return,    spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_Escape,    togglescratch,  {.v = scratchpadcmd } },
@@ -175,7 +170,7 @@ static Key keys[] = {
 	{ 0,     XF86XK_AudioNext,           spawn,          {.v = mediactlnext} },
 	
 	/* Calculator */
-	{ 0,     XF86XK_Calculator,          spawn,          {.v = calccmd} },
+	{ 0,     XF86XK_Calculator,          spawn,          {.v = calculatorcmd} },
 };
 
 /* button definitions */

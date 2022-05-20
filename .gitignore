@@ -3,3 +3,4 @@
 patches/
 build/
 autostart.h
+myapps.h
