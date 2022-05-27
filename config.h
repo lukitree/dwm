@@ -40,13 +40,13 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title          tags mask     iscentered   isfloating    monitor */
 	{ "Nvidia-settings",  NULL,       NULL,          0 ,           1,            1,           -1 },
-	{ "Thunderbird",      NULL,       NULL,          1 << 8,       0,            0,            0 },
 	{ "discord",          NULL,       "Discord",     0,            0,            0,            3 },
 	{ "Google-chrome",    NULL,       "Pandora",     1 << 0,       0,            0,            1 },
 	{ "Alacritty",        NULL,       "pianobar",    1 << 1,       1,            1,            1 },
 	{ "gnome-calculator", NULL,       "Calculator",  0,            1,            1,           -1 },
 	{ "Steam",            NULL,       "Steam",       0,            0,            0,           -1 },
 	{ "Xephyr",           NULL,       "Xephyr",      0,            1,            1,           -1 },
+	{ "86Box",            NULL,       NULL,          0,            1,            1,           -1 },
 };
 
 /* layout(s) */
