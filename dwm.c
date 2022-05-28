@@ -328,7 +328,6 @@ static Window root, wmcheckwin;
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
-#include "autostart.h"
 
 static unsigned int scratchtag = 1 << LENGTH(tags);
 
