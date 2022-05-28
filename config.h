@@ -2,6 +2,8 @@
 
 #include <X11/X.h>
 #include "myapps.h"
+#include "rules.h"
+#include "autostart.h"
 
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
@@ -32,22 +34,6 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
-static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class              instance    title          tags mask     iscentered   isfloating    monitor */
-	{ "Nvidia-settings",  NULL,       NULL,          0 ,           1,            1,           -1 },
-	{ "discord",          NULL,       "Discord",     0,            0,            0,            3 },
-	{ "Google-chrome",    NULL,       "Pandora",     1 << 0,       0,            0,            1 },
-	{ "Alacritty",        NULL,       "pianobar",    1 << 1,       1,            1,            1 },
-	{ "gnome-calculator", NULL,       "Calculator",  0,            1,            1,           -1 },
-	{ "Steam",            NULL,       "Steam",       0,            0,            0,           -1 },
-	{ "Xephyr",           NULL,       "Xephyr",      0,            1,            1,           -1 },
-	{ "86Box",            NULL,       NULL,          0,            1,            1,           -1 },
-};
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */

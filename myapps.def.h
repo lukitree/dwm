@@ -1,4 +1,4 @@
-#pragma once
+/* Preferred Programs */
 
 static const char myCalculator[] = "gnome-calculator";
 static const char myTerminal[] = "st";
