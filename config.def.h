@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+static const unsigned int suwmon = 1;		/* using 32:9 monitor, sets default layout to three column layout(tcl); for now this assumes it's the first monitor */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 6, .gappx = 10};
 static const unsigned int snap      = 32;       /* snap pixel */
