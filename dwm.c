@@ -2294,7 +2294,10 @@ updategeom(void)
 				m->next = createmon();
 			else {
 				mons = createmon();
-				if (suwmon) mons->lt[0] = &layouts[3]; // set default layout for first monitor to tcl layout
+				if (suwmon) {
+					mons->lt[0] = &layouts[3]; /* set default layout for first monitor to tcl layout */
+					mons->lt[1] = &layouts[1]; /* set toggled layout to normal tiling */
+				}
 			}
 		}
 		for (i = 0, m = mons; i < nn && m; m = m->next, i++)
